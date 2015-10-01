@@ -80,6 +80,9 @@ echo "client_encoding = utf8" >> "$PG_CONF"
 # Restart so that all new config is loaded:
 service postgresql restart
 
+# Install Postgis 2.1
+sudo apt-get install -y postgis postgresql-9.4-postgis-2.1
+
 cat << EOF | su - postgres -c psql
 -- Create the database user:
 CREATE USER $APP_DB_USER WITH PASSWORD '$APP_DB_PASS';
@@ -90,6 +93,13 @@ CREATE DATABASE $APP_DB_NAME WITH OWNER=$APP_DB_USER
                                   LC_CTYPE='en_US.utf8'
                                   ENCODING='UTF8'
                                   TEMPLATE=template0;
+
+-- Switch to database:
+\c $APP_DB_NAME
+
+-- Execute data queries:
+\i /ninja/schema.sql
+\i /ninja/data.sql
 EOF
 
 # Tag the provision time:

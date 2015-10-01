@@ -5,6 +5,7 @@
 To utilize this bootrstap for the Ninja backend environment, the following software is required on your host machine:
 
 * Vagrant ~1.7.4
+* VirtualBox > 4.3
 
 ## Setup
 

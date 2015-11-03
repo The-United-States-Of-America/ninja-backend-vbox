@@ -982,27 +982,3 @@ SELECT pg_catalog.setval('user_pkey_sequence', 1, false);
 --
 
 SELECT pg_catalog.setval('usertype_pkey_sequence', 3, true);
-
-
-SET search_path = topology, pg_catalog;
-
---
--- Data for Name: topology; Type: TABLE DATA; Schema: topology; Owner: postgres
---
-
-COPY topology (id, name, srid, "precision", hasz) FROM stdin;
-\.
-
-
---
--- Data for Name: layer; Type: TABLE DATA; Schema: topology; Owner: postgres
---
-
-COPY layer (topology_id, layer_id, schema_name, table_name, feature_column, feature_type, level, child_id) FROM stdin;
-\.
-
-
---
--- PostgreSQL database dump complete
---
-
